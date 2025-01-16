@@ -1,7 +1,6 @@
 # SQL_DB_STOCK_DATA
 *Author: Nguyen Trong Nhan*
 ## Giới thiệu
-
 Dự án nhằm xây dựng một cơ sở dữ liệu để phân tích và quản lý chứng khoán. Cơ sở dữ liệu sẽ cung cấp thông tin quan trọng liên quan đến các giao dịch chứng khoán, dữ liệu cổ phiếu, chứng quyền, chứng chỉ quỹ của công ty niêm yết giúp người dùng quản lý và đưa ra các quyết định đầu tư hợp lý.
 Trong quá trình thực hiện, ta sẽ:
 - **Xác định các yêu cầu của ứng dụng**: Làm rõ các chức năng thông tin mà ứng dụng cần cung cấp.
@@ -10,7 +9,6 @@ Trong quá trình thực hiện, ta sẽ:
 - **Sử dụng Python**: Tạo dữ liệu giả lập, sinh dữ liệu mẫu cho cơ sở dữ liệu.
 - **Tạo Trigger, Procedures và Views**: Đảm bảo tính toàn vẹn dữ liệu cũng như cung cấp báo cáo, thông tin hữu ích người dùng.
 ## 1. Mục tiêu
-
 Với **SQL_DB_STOCK_DATA**, ta có thể:
 - Xây dựng cơ sở dữ liệu cho hệ thống quản lý chứng khoán.
 - Đảm bảo tính toàn vẹn của dữ liệu và cung cấp báo cáo về thông tin cổ phiếu, chứng quyền, chứng chỉ quỹ, các chỉ số thị trường, danh mục đầu tư, thông tin các giao dịch.
@@ -33,7 +31,6 @@ Với **SQL_DB_STOCK_DATA**, ta có thể:
 **Bảng User_devices:**
 **...**
 ## 4. Triển khai cơ sở dữ liệu
-
 Cơ sở dữ liệu được triển khai trên SQL Server. Các bước triển khai cơ bản
 *Tạo cở sỡ dữ liệu*
 - CREATE DATABASE StockManagement;
@@ -47,7 +44,6 @@ CREATE TABLE <Tên bảng> (
     CONSTRAINT <Tên khóa ngoại> FOREIGN KEY (Tên cột 2) REFERENCES <Tên bảng chứa khóa chính> (Tên cột chứa khóa chính)
 );
 ## 5. Tạo dữ liệu giả lập với Python
-
 Chúng ta sẽ sử dụng Python để tạo ra các dữ liệu giả lập cho cơ sở dữ liệu. Để làm điều này, chúng ta có thể sử dụng thư viện Faker để tạo thông tin giả về cổ phiếu và người dùng, và sử dụng pyodbc để kết nối với SQL Server.
 **Cài đặt thư viện**
 pip install faker pyodbc
