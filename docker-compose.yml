@@ -9,7 +9,7 @@ services:
     ports:
       - 1444:1433
     volumes:
-      - C:\Users\pc\Visual Studio Code\Docker:\var\opt\mssql\db_data
+      - C:\Users\pc\Visual Studio Code\Docker\SQL_DB_STOCK_DATA:\var\opt\mssql\db_data
     restart: always
     mem_limit: 1g
     memswap_limit: 2g
