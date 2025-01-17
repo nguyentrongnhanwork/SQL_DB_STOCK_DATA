@@ -57,7 +57,7 @@ pip install pandas pyodbc
 1. **server**: Địa chỉ và cổng của máy chủ SQL Server (Ví dụ: 'localhost, 1444').
 2. **database**: Tên của cơ sở dữ liệu mà bạn muốn kết nối (Ví dụ: 'STOCK_DATA').
 3. **username**: Tên tài khoản để đăng nhập vào SQL Server (Ví dụ: 'sa').
-4. **password**: Mật khẩu tương ứng với tài khoản đăng nhập (Ví dụ: 'StrongPassword!2025').
+4. **password**: Mật khẩu tương ứng với tài khoản đăng nhập (Ví dụ: 'StrongPassword!2025').  
 Chú ý rằng các giá trị này có thể thay đổi tùy theo cấu hình của bạn.  
 **Ví dụ:**
 *Kết nối với SQL Server*
@@ -85,11 +85,11 @@ def get_cursor():
 **Cơ sở dữ liệu được triển khai trên SQL Server. Các bước triển khai:**  
 *Tạo cở sỡ dữ liệu*  
 ```sql
-CREATE DATABASE STOCK_DATA;
+CREATE DATABASE StockManagement;
 ```
 *Ví dụ:*
 ```sql
-CREATE DATABASE StockManagement;
+CREATE DATABASE STOCK_DATA;
 ```
 *Tạo các bảng với cấu trúc sau:*
 ```sql
