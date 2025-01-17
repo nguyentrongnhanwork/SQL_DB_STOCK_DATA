@@ -47,7 +47,7 @@ Với **SQL_DB_STOCK_DATA**, ta có thể:
 **- Bảng Linked_bank_accounts:** account_id PRIMARY KEY, user_id FOREIGN KEY REFERENCES Users(user_id), bank_name, account_number, account_type  
 **- Bảng Transactions:** transaction_id PRIMARY KEY, user_id FOREIGN KEY REFERENCES Users(user_id), linked_account_id FOREIGN KEY REFERENCES Linked_bank_accounts(account_id), transaction_type, amount, transaction_date  
 ## 4. Cài đặt và triển khai cơ sở dữ liệu
-**Cài đặt các thư viện Pyhton cần thiết:**
+**Cài đặt các thư viện Python cần thiết:**
 ```python
 pip install pandas pyodbc
 ```
