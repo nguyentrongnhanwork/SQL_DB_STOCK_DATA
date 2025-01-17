@@ -28,24 +28,24 @@ Với **SQL_DB_STOCK_DATA**, ta có thể:
 - Tạo và quản lý hông tin tài khoản người dùng (tên, email, mật khẩu tài khoản)
 ## 3. Thiết kế mô hình dữ liệu
 ### Cấu trúc các bảng chính
-**- Bảng Users:** user_id PRIMARY KEY, user_name, hashed_password, email, phone_number, full_name, date_of_birth, country
-**- Bảng User_devices:** id PRIMARY KEY, user_id FOREIGN KEY REFERENCES Users(user_id), device_id
-**- Bảng Stocks:** stock_id PRIMARY KEY, symbol, company_name, market_cap sector, industry, stock_type, rank, reason 
-**- Bảng Quotes:** quote_id PRIMARY KEY, stock_id FOREIGN KEY REFERENCES Stocks(stock_id), price, change percent_change, volume, time_stamp
-**- Bảng Market_Index:** index_id PRIMARY KEY IDENTITY, index_name, symbol
-**- Bảng Index_Constituents:** index_id FOREIGN KEY REFERENCES Market_Index(index_id), stock_id FOREIGN KEY REFERENCES Stocks(stock_id) 
-**- Bảng Derivatives:** derivative_id, name, underlying_asset_id FOREIGN KEY REFERENCES Stocks(stock_id), contract_size, expiration_date, strike_price, last_price, change, percent_change, open_price, high_price, low_price, volume, open_interest, time_stamp
-**- Bảng Covered_Warrants:** warrant_id PRIMARY KEY, name, underlying_asset_id FOREIGN KEY REFERENCES Stocks(stock_id), issue_date, expiration_day, strike_price, warrant_type
-**- Bảng ETFs:** etf_id INT PRIMARY KEY, name, symbol, management_company, inception_date
-**- Bảng ETF_quotes:** quote_id INT PRIMARY KEY, etf_id FOREIGN KEY REFERENCES ETFs(etf_id), price, change, percent_change, volume, time_stamp
-**- Bảng ETF_holding:** etf_id FOREIGN KEY REFERENCES ETFs(etf_id), stock_id FOREIGN KEY REFERENCES Stocks(stock_id), shares_held, weight
-**- Bảng Watchlists:** user_id FOREIGN KEY REFERENCES Users(user_id), stock_id FOREIGN KEY REFERENCES Stocks(stock_id)
-**- Bảng Orders:** order_id PRIMARY KEY, user_id FOREIGN KEY REFERENCES Users(user_id), stock_id FOREIGN KEY REFERENCES Stocks(stock_id), order_type, action, quantity, price, status, order_time
-**- Bảng Portfolios:** user_id FOREIGN KEY REFERENCES Users(user_id), stock_id FOREIGN KEY REFERENCES Stocks(stock_id), quantity, purchase_price, purchase_date
-**- Bảng Notifications:** notification_id PRIMARY KEY, user_id FOREIGN KEY REFERENCES Users(user_id), notification_type, content, has_been_read, create_at
-**- Bảng Educational_Resources:** resource_id PRIMARY KEY, title, content, category, date_published
-**- Bảng Linked_bank_accounts:** account_id PRIMARY KEY, user_id FOREIGN KEY REFERENCES Users(user_id), bank_name, account_number, account_type
-**- Bảng Transactions:** transaction_id PRIMARY KEY, user_id FOREIGN KEY REFERENCES Users(user_id), linked_account_id FOREIGN KEY REFERENCES Linked_bank_accounts(account_id), transaction_type, amount, transaction_date
+**- Bảng Users:** user_id PRIMARY KEY, user_name, hashed_password, email, phone_number, full_name, date_of_birth, country  
+**- Bảng User_devices:** id PRIMARY KEY, user_id FOREIGN KEY REFERENCES Users(user_id), device_id  
+**- Bảng Stocks:** stock_id PRIMARY KEY, symbol, company_name, market_cap sector, industry, stock_type, rank, reason  
+**- Bảng Quotes:** quote_id PRIMARY KEY, stock_id FOREIGN KEY REFERENCES Stocks(stock_id), price, change percent_change, volume, time_stamp  
+**- Bảng Market_Index:** index_id PRIMARY KEY IDENTITY, index_name, symbol  
+**- Bảng Index_Constituents:** index_id FOREIGN KEY REFERENCES Market_Index(index_id), stock_id FOREIGN KEY REFERENCES Stocks(stock_id)  
+**- Bảng Derivatives:** derivative_id, name, underlying_asset_id FOREIGN KEY REFERENCES Stocks(stock_id), contract_size, expiration_date, strike_price, last_price, change, percent_change, open_price, high_price, low_price, volume, open_interest, time_stamp  
+**- Bảng Covered_Warrants:** warrant_id PRIMARY KEY, name, underlying_asset_id FOREIGN KEY REFERENCES Stocks(stock_id), issue_date, expiration_day, strike_price, warrant_type  
+**- Bảng ETFs:** etf_id INT PRIMARY KEY, name, symbol, management_company, inception_date  
+**- Bảng ETF_quotes:** quote_id INT PRIMARY KEY, etf_id FOREIGN KEY REFERENCES ETFs(etf_id), price, change, percent_change, volume, time_stamp  
+**- Bảng ETF_holding:** etf_id FOREIGN KEY REFERENCES ETFs(etf_id), stock_id FOREIGN KEY REFERENCES Stocks(stock_id), shares_held, weight  
+**- Bảng Watchlists:** user_id FOREIGN KEY REFERENCES Users(user_id), stock_id FOREIGN KEY REFERENCES Stocks(stock_id)  
+**- Bảng Orders:** order_id PRIMARY KEY, user_id FOREIGN KEY REFERENCES Users(user_id), stock_id FOREIGN KEY REFERENCES Stocks(stock_id), order_type, action, quantity, price, status, order_time  
+**- Bảng Portfolios:** user_id FOREIGN KEY REFERENCES Users(user_id), stock_id FOREIGN KEY REFERENCES Stocks(stock_id), quantity, purchase_price, purchase_date  
+**- Bảng Notifications:** notification_id PRIMARY KEY, user_id FOREIGN KEY REFERENCES Users(user_id), notification_type, content, has_been_read, create_at  
+**- Bảng Educational_Resources:** resource_id PRIMARY KEY, title, content, category, date_published  
+**- Bảng Linked_bank_accounts:** account_id PRIMARY KEY, user_id FOREIGN KEY REFERENCES Users(user_id), bank_name, account_number, account_type  
+**- Bảng Transactions:** transaction_id PRIMARY KEY, user_id FOREIGN KEY REFERENCES Users(user_id), linked_account_id FOREIGN KEY REFERENCES Linked_bank_accounts(account_id), transaction_type, amount, transaction_date  
 ## 4. Cài đặt và triển khai cơ sở dữ liệu
 **Cài đặt các thư viện Pyhton cần thiết:**
 ```python
@@ -58,7 +58,7 @@ pip install pandas pyodbc
 2. **database**: Tên của cơ sở dữ liệu mà bạn muốn kết nối (Ví dụ: 'STOCK_DATA').
 3. **username**: Tên tài khoản để đăng nhập vào SQL Server (Ví dụ: 'sa').
 4. **password**: Mật khẩu tương ứng với tài khoản đăng nhập (Ví dụ: 'StrongPassword!2025').
-Chú ý rằng các giá trị này có thể thay đổi tùy theo cấu hình của bạn.
+Chú ý rằng các giá trị này có thể thay đổi tùy theo cấu hình của bạn.  
 **Ví dụ:**
 *Kết nối với SQL Server*
 ```python
@@ -82,8 +82,8 @@ cursor = conn.cursor()
 def get_cursor():
     return cursor, conn
 ```
-**Cơ sở dữ liệu được triển khai trên SQL Server. Các bước triển khai:**
-*Tạo cở sỡ dữ liệu*
+**Cơ sở dữ liệu được triển khai trên SQL Server. Các bước triển khai:**  
+*Tạo cở sỡ dữ liệu*  
 ```sql
 CREATE DATABASE STOCK_DATA;
 ```
@@ -116,12 +116,12 @@ CREATE TABLE Users(
 );
 ```
 ## 5. Tạo dữ liệu giả lập với Python
-Chúng ta sẽ sử dụng Python để tạo ra các dữ liệu giả lập cho cơ sở dữ liệu. Để làm điều này, chúng ta có thể sử dụng thư viện Faker để tạo thông tin giả về cổ phiếu và người dùng, và sử dụng pyodbc để kết nối với SQL Server.
+Chúng ta sẽ sử dụng Python để tạo ra các dữ liệu giả lập cho cơ sở dữ liệu. Để làm điều này, chúng ta có thể sử dụng thư viện Faker để tạo thông tin giả về cổ phiếu và người dùng, và sử dụng pyodbc để kết nối với SQL Server.  
 **Cài đặt thư viện**
 ```python
 pip install faker pyodbc
 ```
-**Tạo dữ liệu giả lập**
+**Tạo dữ liệu giả lập**  
 *Ví dụ:* Tạo dữ liệu giả lập để tạo ra các thông tin về ETF
 ```python
 import random
@@ -228,7 +228,7 @@ BEGIN
     VALUES(@username, HASHBYTES('SHA2_256', @password), @email, @phone, @full_name, @date_of_birth, @country);
 END;
 ```
-**View: Xem các giao dịch chứng khoán và các sản phẩm phái sinh**
+**View: Xem các giao dịch chứng khoán và các sản phẩm phái sinh**  
 *Chứng khoán*
 ```sql
 CREATE VIEW View_stocks AS
@@ -265,10 +265,10 @@ FROM Derivatives AS d
 INNER JOIN Stocks AS s on s.stock_id = d.underlying_asset_id
 ```
 ## 7. Kết nối và đưa lên Docker
-Cài đặt Docker nếu chưa có: [Docker Downloads]
-Tạo file Dokcker Compose chứa các thông tin kết nối.
-Ví dụ Docker Compose: [https://github.com/nguyentrongnhanwork/SQL_DB_STOCK_DATA/blob/main/docker-compose.yml]
-Xây dựng và chạy container (Windows PowerShell):
+Cài đặt Docker nếu chưa có: [Docker Downloads]  
+Tạo file Dokcker Compose chứa các thông tin kết nối.  
+Ví dụ Docker Compose: [https://github.com/nguyentrongnhanwork/SQL_DB_STOCK_DATA/blob/main/docker-compose.yml]  
+Xây dựng và chạy container (Windows PowerShell):  
 ```
 docker ps
 docker-compose up -d
