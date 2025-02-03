@@ -266,7 +266,7 @@ INNER JOIN Stocks AS s on s.stock_id = d.underlying_asset_id
 ```
 ## 7. Kết nối và đưa lên Docker
 Cài đặt Docker nếu chưa có: [Docker Downloads]  
-Tạo file Dokcker Compose chứa các thông tin kết nối.  
+Tạo file Docker Compose chứa các thông tin kết nối.  
 Ví dụ Docker Compose: [https://github.com/nguyentrongnhanwork/SQL_DB_STOCK_DATA/blob/main/docker-compose.yml]  
 Xây dựng và chạy container (Windows PowerShell):  
 ```
