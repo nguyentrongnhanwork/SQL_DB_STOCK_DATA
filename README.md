@@ -277,4 +277,4 @@ docker start <id hoặc tên container>
 Mã Python kết nối: [https://github.com/nguyentrongnhanwork/SQL_DB_STOCK_DATA/blob/main/python_exec/connect.py]
 ## 8. Kết luận
 Qua dự án này, ta đã xây dựng một cơ sở dữ liệu để phân tích và quản lý chứng khoán, sử dụng SQL Server để triển khai cơ sở dữ liệu, và sử dụng Python để tạo dữ liệu giả lập. Học cách sử dụng Trigger, Procedures và Views để đảm bảo tính toàn vẹn dữ liệu và cung cấp thông tin hữu ích cho người dùng.
-## 9. Tài liệu thanm khảo
+## 9. Tài liệu tham khảo
